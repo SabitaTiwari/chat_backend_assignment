@@ -32,45 +32,45 @@ A real-time chat backend built with FastAPI, PostgreSQL, SQLAlchemy, JWT authent
 git clone <your-github-repo-url>
 cd chat_backend_assignment
 
-2. Create and activate virtual environment
-Windows
-python -m venv venv
-venv\Scripts\activate
+### 2. Create and activate virtual environment
+- Windows
+  python -m venv venv
+  venv\Scripts\activate
 
-macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+- macOS/Linux
+  python3 -m venv venv
+  source venv/bin/activate
 
-3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 
-4. Create PostgreSQL database
+### 4. Create PostgreSQL database
 Create a database named:
 chat_app_db
 
-5. Configure database connection
+### 5. Configure database connection
 Update app/core/config.py with your PostgreSQL credentials:
 DATABASE_URL = "postgresql+psycopg2://postgres:YOUR_PASSWORD@localhost:5432/chat_app_db"
 
-6. Run the application
+### 6. Run the application
 uvicorn app.main:app --reload
 
 API Endpoints
-Authentication
+- Authentication
 POST /auth/signup
 POST /auth/login
 GET /auth/me
 GET /auth/admin-only
 
-Rooms
+- Rooms
 POST /rooms (admin only)
 GET /rooms
 GET /rooms/{room_id}/messages
 
-WebSocket
+- WebSocket
 ws://127.0.0.1:8000/ws/{room_id}?token=YOUR_JWT_TOKEN
 
-Authentication Flow
+- Authentication Flow
 signup a user uisng /auth/signup
 Login in using /auth/login
 Copy the returned JWT token
@@ -85,7 +85,7 @@ GET /rooms/1/messages
 GET /rooms/1/messages?cursor=10
 
 
-ebSocket Behavior
+WebSocket Behavior
 
 On connection
  validates JWT token
